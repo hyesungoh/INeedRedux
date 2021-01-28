@@ -29,8 +29,8 @@ const store = createStore(reducer);
 
 -   #### Reducer ?
 
-    -   function for modifying data
-    -   return data is application's data
+    -   Function for modifying data
+    -   Return data is application's data
 
 -   #### Basic Usage of store, reducer (modifyier)
 
@@ -43,6 +43,27 @@ const modifyier = (state = 0) => {
 const store = createStore(modifyier);
 
 console.log(store.getState());
+```
+
+-   #### Redux action
+    -   Only modifyier can change own store's data
+    -   Modifyier's 2nd prop is action
+    -   Action must be object type
+
+```js
+const modifyier = (state, action) => {
+    if (action.type === "SOMETHING") {
+        return "SOMETHING";
+    } else {
+        return "INIT";
+    }
+};
+
+const store = createStore(modifyier);
+// current state === "INIT"
+
+store.dispatch({ type: "SOMETHING" });
+// current state === "SOMETHING"
 ```
 
 ## Redux with React
