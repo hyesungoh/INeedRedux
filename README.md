@@ -66,4 +66,16 @@ store.dispatch({ type: "SOMETHING" });
 // current state === "SOMETHING"
 ```
 
+-   #### Subscribe
+
+    -   Subscribe detect change
+
+```js
+const onChange = () => {
+    console.log("Im changed!");
+};
+
+store.subscribe(onChange);
+```
+
 ## Redux with React
