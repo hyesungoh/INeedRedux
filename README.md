@@ -78,4 +78,18 @@ const onChange = () => {
 store.subscribe(onChange);
 ```
 
+-   #### 3 Principles of Redux
+
+    -   #### Single source of truth
+    -   #### State is Read-Only
+        -   only waty to change the state is sending action
+    -   #### Never Mutate State
+        -   don't return mutated state, return new state
+
+    ```js
+    // return state.push("something");
+
+    return [...state, { text: "something" }];
+    ```
+
 ## Redux with React
