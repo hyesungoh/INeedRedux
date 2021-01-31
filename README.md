@@ -92,4 +92,14 @@ store.subscribe(onChange);
     return [...state, { text: "something" }];
     ```
 
+-   #### Action Creator
+    -   return action object
+
+```js
+const returnAction = (something) => ({ type: SOME_TYPE, data: something });
+
+//somewhere
+store.dispatch(returnAction(data));
+```
+
 ## Redux with React
