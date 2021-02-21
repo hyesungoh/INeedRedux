@@ -103,3 +103,8 @@ store.dispatch(returnAction(data));
 ```
 
 ## Redux with React
+
+-   #### Install react-redux
+    ```terminal
+    npm i react-redux
+    ```
