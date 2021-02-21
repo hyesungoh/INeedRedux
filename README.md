@@ -105,6 +105,61 @@ store.dispatch(returnAction(data));
 ## Redux with React
 
 -   #### Install react-redux
-    ```terminal
-    npm i react-redux
-    ```
+
+```terminal
+npm i react-redux
+```
+
+-   #### Create, Set base Store
+
+```js
+// store/store.js
+
+import { createStore } from "redux";
+
+const ADD = "ADD";
+const DELETE = "DELETE";
+
+const reducer = (state = [], action) => {
+    switch (action.type) {
+        case ADD:
+            return [{ text: action.text, id: Date.now() }, ...state];
+        case DELETE:
+            return state.filter((toDo) => toDo !== action.id);
+        default:
+            return state;
+    }
+};
+
+const store = createStore(reducer);
+
+export default store;
+```
+
+-   #### Add Action Creater
+
+```js
+const addToDo = (text) => {
+    return { type: ADD, text };
+};
+
+const deleteToDo = (id) => {
+    return { type: DELETE, id };
+};
+```
+
+-   #### Connect App and Store
+
+```js
+// index.js
+...
+import { Provider } from "react-redux";
+import store from "./store/store";
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById("root")
+);
+```
