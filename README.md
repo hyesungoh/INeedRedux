@@ -165,7 +165,7 @@ ReactDOM.render(
 ```
 
 -   #### mapStateToProps
-    add props to component using connect function
+    give Store's state to component, using connect function
 
 ```js
 ...
@@ -188,3 +188,15 @@ const mapStateToProps(state, ownProps) {
 export default connect(mapStateToProps) (Compo);
 ```
 
+-   #### mapDispatchToProps
+    give Dispatch function to component, using connect function
+
+```js
+const Home = ({ addToDo }) => {
+    // using actionCreator addToDo
+}
+
+const mapDispatchToProps(dispatch, ownProps) {
+    return {addToDo: (text) => dispatch(actionCreator(text))}
+}
+```
