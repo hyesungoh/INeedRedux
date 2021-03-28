@@ -163,3 +163,28 @@ ReactDOM.render(
     document.getElementById("root")
 );
 ```
+
+-   #### mapStateToProps
+    add props to component using connect function
+
+```js
+...
+import { connect } from "react-redux";
+
+const Compo = (props) => {
+    console.log(props);
+    // it comes {...ownProps, toDos: state}
+    // because function mapStateToProps return {toDos: state}
+    ...
+}
+
+const mapStateToProps(state, ownProps) {
+    console.log(state, ownProps);
+    // state is redux store's state
+    // ownProps is Compo's props
+    return {toDos: state};
+}
+
+export default connect(mapStateToProps) (Compo);
+```
+

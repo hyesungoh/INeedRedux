@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
 const Home = () => {
     const [text, setText] = useState("");
@@ -25,4 +26,8 @@ const Home = () => {
     );
 };
 
-export default Home;
+const getCurrentState = (state, ownProps) => {
+    console.log(state, ownProps);
+};
+
+export default connect(getCurrentState)(Home);
